@@ -1,0 +1,75 @@
+<!doctype html><html lang="vi"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#2563eb"><link rel="manifest" href="manifest.json"><title>Slide 100</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:#172033;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+.app{max-width:980px;margin:auto;padding:14px 14px 90px}.hero{padding:22px;border-radius:25px;background:linear-gradient(135deg,#173ea5,#3b82f6);color:#fff;box-shadow:0 14px 35px #1d4ed833}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.logo{font-size:13px;font-weight:800;opacity:.9}.hero h1{font-size:27px;line-height:1.1;margin:6px 0}.hero p{margin:0 0 17px;opacity:.88}.progress{height:11px;background:#ffffff35;border-radius:99px;overflow:hidden}.progress b{display:block;height:100%;background:white;width:0;border-radius:99px;transition:.3s}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:13px}.stat{padding:10px;border:1px solid #ffffff25;background:#ffffff16;border-radius:14px}.stat strong{display:block;font-size:19px}.stat span{font-size:11px;opacity:.8}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:14px 0}.tab{background:#fff;border:1px solid #e5e9f0;border-radius:13px;padding:11px 5px;font-weight:750;color:#475467}.tab.active{background:#eaf2ff;color:#1d4ed8;border-color:#bfdbfe}
+.view{display:none}.view.active{display:block}.card{background:#fff;border:1px solid #e5e9f0;border-radius:19px;padding:18px;margin-bottom:12px;box-shadow:0 5px 18px #10182808}
+h2{font-size:19px;margin:0 0 10px}.today{display:flex;justify-content:space-between;gap:15px;align-items:center}.badge{display:inline-block;padding:5px 9px;border-radius:99px;background:#eff6ff;color:#1d4ed8;font-size:11px;font-weight:800}.today h2{font-size:22px;margin:8px 0 5px}.muted{color:#667085;font-size:13px;line-height:1.5}
+button{border:0;border-radius:12px;padding:11px 14px;font-weight:750;cursor:pointer}.primary{background:#2563eb;color:#fff}.soft{background:#eef2f7;color:#172033}.green{background:#dcfce7;color:#166534}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.day{background:#fff;border:1px solid #e5e9f0;border-radius:11px;padding:10px 3px;text-align:center;font-weight:800;cursor:pointer}.day small{display:block;font-weight:500;color:#98a2b3;font-size:10px;margin-top:2px}.day.done{background:#ecfdf3;border-color:#86efac;color:#15803d}.day.current{outline:2px solid #2563eb}
+.lesson h2{font-size:24px;margin:9px 0 5px}.box{background:#f8fafc;border:1px solid #e7ebf0;border-radius:14px;padding:13px;margin-top:11px}.box h3{font-size:13px;margin:0 0 8px}.box ul{margin:0;padding-left:19px;line-height:1.7}.check{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid #e8ecf1;font-size:14px}.check:last-child{border:0}.check input{width:18px;height:18px;accent-color:#2563eb}
+textarea{width:100%;min-height:120px;border:1px solid #dbe1ea;border-radius:13px;padding:12px;font:inherit;resize:vertical}.scoregrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.score{border:1px solid #e5e9f0;border-radius:13px;padding:11px}.score label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}.score input{width:100%;accent-color:#2563eb}.score b{font-size:12px;color:#2563eb}
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.badgecard{border:1px solid #e5e9f0;border-radius:15px;padding:13px;background:#fff}.badgecard.lock{opacity:.4;filter:grayscale(1)}.emoji{font-size:25px}.badgecard b{display:block;margin-top:4px}.badgecard small{color:#667085}
+.install{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412}.tip{text-align:center;color:#667085;font-size:12px;margin:18px 0}
+@media(max-width:560px){.app{padding:10px 10px 80px}.stats{grid-template-columns:repeat(2,1fr)}.today{align-items:flex-start}.today button{white-space:nowrap}.scoregrid{grid-template-columns:1fr}.badges{grid-template-columns:1fr 1fr}.grid{gap:5px}.day{padding:9px 2px;font-size:12px}}
+</style></head><body><div class="app">
+<header class="hero"><div class="top"><div><div class="logo">🎨 SLIDE 100</div><h1>100 ngày để giỏi thiết kế slide</h1><p>Từ chưa có kinh nghiệm → tự tin làm bài đại học.</p></div><div style="font-size:27px">🔥</div></div><div class="progress"><b id="bar"></b></div><div class="stats">
+<div class="stat"><strong id="pct">0%</strong><span>Tiến độ</span></div><div class="stat"><strong id="dn">0/100</strong><span>Ngày học</span></div><div class="stat"><strong id="str">0</strong><span>Streak</span></div><div class="stat"><strong id="score">0</strong><span>Điểm slide</span></div></div></header>
+
+<nav class="tabs"><button class="tab active" onclick="tab('home',this)">🏠 Hôm nay</button><button class="tab" onclick="tab('road',this)">🗺️ Lộ trình</button><button class="tab" onclick="tab('review',this)">⭐ Chấm slide</button><button class="tab" onclick="tab('achieve',this)">🏆 Thành tích</button></nav>
+
+<section id="home" class="view active">
+<div class="card today"><div><span class="badge" id="phase"></span><h2 id="todayTitle"></h2><div class="muted" id="todayGoal"></div></div><button class="primary" onclick="tab('lesson')">Bắt đầu học →</button></div>
+<div class="card"><h2>📌 Quy tắc học của bạn</h2><div class="muted">Mỗi ngày 45–60 phút: <b>10 phút học → 10 phút phân tích → 30 phút làm → 5 phút tự sửa.</b><br>Đừng cố làm thật đẹp ngay. Mục tiêu là tiến bộ từng ngày.</div></div>
+<div class="card install"><h2>📱 Dùng như ứng dụng</h2><div class="muted" id="installText">Nếu trình duyệt hỗ trợ, hãy chọn “Thêm vào màn hình chính” để mở app như một ứng dụng.</div><div class="actions"><button class="primary" id="installBtn" style="display:none">＋ Thêm vào màn hình chính</button></div></div>
+</section>
+
+<section id="lesson" class="view"><div class="card lesson"><span class="badge" id="lphase"></span><h2 id="ltitle"></h2><div class="muted" id="lgoal"></div>
+<div class="box"><h3>📖 Hôm nay học</h3><ul id="learn"></ul></div><div class="box"><h3>✏️ Bài tập</h3><div id="task" class="muted"></div></div><div class="box"><h3>☑️ Checklist</h3><div id="checks"></div></div>
+<div class="actions"><button class="primary" onclick="complete()">✓ Hoàn thành ngày</button><button class="soft" onclick="uncomplete()">↺ Bỏ hoàn thành</button></div><div class="actions"><button class="soft" onclick="move(-1)">← Trước</button><button class="soft" onclick="move(1)">Ngày tiếp →</button></div></div></section>
+
+<section id="road" class="view"><div class="card"><h2>🗺️ Lộ trình 100 ngày</h2><div class="muted" style="margin-bottom:12px">Chạm vào một ngày để xem bài học. Màu xanh lá = đã hoàn thành.</div><div class="grid" id="days"></div></div></section>
+
+<section id="review" class="view"><div class="card"><h2>⭐ Tự chấm một slide</h2><div class="muted">Chấm từ 1–10. Không cần hoàn hảo; hãy ghi lại điểm yếu để sửa.</div><div class="scoregrid" style="margin-top:12px" id="scores"></div><div class="box"><h3>🧠 Bạn cần sửa gì?</h3><textarea id="note" placeholder="Ví dụ: chữ hơi nhỏ, ảnh chưa cân, có quá nhiều màu..."></textarea></div><div class="actions"><button class="primary" onclick="saveReview()">Lưu đánh giá</button></div><div class="box"><h3>📈 Điểm gần nhất</h3><div id="reviewResult" class="muted">Chưa có đánh giá.</div></div></div></section>
+
+<section id="achieve" class="view"><div class="card"><h2>🏆 Thành tích</h2><div class="badges" id="badges"></div></div><div class="card"><h2>💬 Lời nhắc</h2><div class="muted">Bạn từng bị đánh giá thấp vì thiếu kinh nghiệm. Đừng dùng chuyện đó để kết luận rằng bạn không có khả năng. Hãy dùng 100 ngày này để tạo bằng chứng ngược lại.</div></div></section>
+<p class="tip">Slide 100 • Học để làm được bài thật, không học để thuộc lý thuyết.</p>
+</div>
+<script>
+const phases=[["Giai đoạn 1 • Làm quen",1,14],["Giai đoạn 2 • Bố cục",15,30],["Giai đoạn 3 • Nội dung",31,45],["Giai đoạn 4 • Màu, font, ảnh",46,60],["Giai đoạn 5 • Infographic",61,70],["Giai đoạn 6 • Bài đại học",71,85],["Giai đoạn 7 • Portfolio",86,100]];
+const custom={
+1:["Làm quen PowerPoint","Tạo file 16:9, khám phá giao diện và lưu file.","Tạo 1 slide trắng, thêm tiêu đề và 3 dòng nội dung.","Tạo slide • Đổi 16:9 • Lưu file"],
+2:["Text box & căn chữ","Biết tạo và căn chỉnh hộp chữ.","Làm 1 slide chỉ có tiêu đề và 3 dòng nội dung.","Text box • Căn trái • Chỉnh cỡ chữ"],
+3:["Font chữ","Biết chọn font dễ đọc.","Làm 1 slide với 1 font và 3 cấp chữ.","Chọn font • 3 cấp chữ • Không dùng font rối"],
+4:["Shape","Biết dùng hình khối để chia bố cục.","Tạo 3 card thông tin bằng shape.","Shape • Căn đều • Group"],
+5:["Hình ảnh","Biết chèn, crop và căn ảnh.","Làm slide chữ trái – ảnh phải.","Chèn ảnh • Crop • Căn thẳng"],
+6:["Align & Distribute","Đưa mọi thành phần về đúng hàng lối.","Tạo 6 icon thành một hàng đều nhau.","Align • Distribute • Khoảng cách"],
+7:["Layer & Group","Quản lý các thành phần.","Tạo poster nhỏ có nền, ảnh, chữ, icon.","Đưa trước/sau • Group • Ungroup"],
+8:["Copy để học","Học bằng cách tái tạo bố cục.","Chọn một slide đơn giản và làm lại.","Phân tích • Làm lại • So sánh"],
+9:["Khoảng trắng","Biết để slide dễ thở.","Làm slide chỉ sử dụng khoảng 50% diện tích.","Khoảng trắng • Không nhồi chữ"],
+10:["Slide đầu tiên","Kết hợp kiến thức cơ bản.","Làm slide giới thiệu một địa điểm du lịch.","Tiêu đề • Ảnh • Nội dung • Căn chỉnh"]
+};
+const layouts=["Text + Image","Full Image","2 cột","3 Cards","Big Number","Timeline","Comparison","Process","Quote","Conclusion"];
+let day=+localStorage.getItem("sday")||1, done=JSON.parse(localStorage.getItem("sdone")||"[]"), deferred;
+function phase(d){return phases.find(x=>d>=x[1]&&d<=x[2])}
+function data(d){let p=phase(d); if(custom[d])return [p,custom[d]];let title=d<=30?layouts[(d-15)%10]:"Luyện tập ngày "+d;let task=d<=30?"Tái tạo một slide mẫu theo bố cục "+title+" rồi đổi nội dung thành chủ đề của bạn.":d<=45?"Lấy một đoạn văn 80–120 chữ từ môn học và biến thành 1 slide: tiêu đề + 3–5 ý chính.":d<=60?"Thiết kế 1 slide du lịch/ngân hàng bằng 1 màu chủ đạo, 1 màu nhấn và tối đa 2 font.":d<=70?"Biến một bảng thông tin thành infographic: biểu đồ, timeline, quy trình hoặc so sánh.":d<=85?"Làm 1–2 slide từ chính môn học của bạn, ưu tiên nội dung thật.":"Làm lại 1 slide cũ, tự chấm 6 tiêu chí và sửa điểm yếu.";return [p,[title,p[0],"Mục tiêu hôm nay là làm được một sản phẩm nhỏ.",task,"Làm bài • Kiểm tra bố cục • Tự sửa"]]}
+function render(){let [p,x]=data(day);document.getElementById("phase").textContent=p[0];document.getElementById("todayTitle").textContent="Ngày "+day+" — "+x[0];document.getElementById("todayGoal").textContent=x[1];document.getElementById("lphase").textContent=p[0];document.getElementById("ltitle").textContent="Ngày "+day+" — "+x[0];document.getElementById("lgoal").textContent=x[1];document.getElementById("task").textContent=x[3];document.getElementById("learn").innerHTML=(day<=14?["Một thao tác mới","Căn chỉnh sạch","Làm ngay sau khi học"]:day<=30?["Bố cục cơ bản","Khoảng trắng","Tái tạo slide mẫu"]:day<=45?["Ý chính","Tiêu đề ngắn","Một slide = một ý"]:day<=60?["Font","Màu","Ảnh và phong cách"]:day<=70?["Biểu đồ","Timeline/process","Thông tin trực quan"]:["Nội dung thật","Hệ thống nhất quán","Tự sửa"] ).map(a=>"<li>"+a+"</li>").join("");document.getElementById("checks").innerHTML=x[4].split("•").map((a,i)=>`<label class="check"><input type="checkbox" ${localStorage.getItem("ck"+day+i)=="1"?"checked":""} onchange="localStorage.setItem('ck${day+i}',this.checked?'1':'0')"><span>${a.trim()}</span></label>`).join("");drawDays();stats();drawBadges()}
+function drawDays(){let e=document.getElementById("days");e.innerHTML="";for(let i=1;i<=100;i++){let b=document.createElement("div");b.className="day "+(done.includes(i)?"done ":"")+(i==day?"current":"");b.innerHTML=i+(done.includes(i)?" ✓":"")+"<small>"+(i%10==0?"🏆":"")+"</small>";b.onclick=()=>{day=i;save();render();tab("lesson")};e.appendChild(b)}}
+function stats(){let n=done.length;document.getElementById("pct").textContent=n+"%";document.getElementById("dn").textContent=n+"/100";document.getElementById("bar").style.width=n+"%";let s=0;for(let i=day;i>=1&&done.includes(i);i--)s++;document.getElementById("str").textContent=s;document.getElementById("score").textContent=localStorage.getItem("lastscore")||0}
+function save(){localStorage.setItem("sday",day);localStorage.setItem("sdone",JSON.stringify(done))}
+function complete(){if(!done.includes(day))done.push(day);done.sort((a,b)=>a-b);save();render();if(day<100){day++;save();render()}}
+function uncomplete(){done=done.filter(x=>x!=day);save();render()}
+function move(n){day=Math.max(1,Math.min(100,day+n));save();render()}
+function tab(id,btn){document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));if(btn)btn.classList.add("active");else if(id=="lesson")document.querySelectorAll(".tab")[0].classList.add("active")}
+const cats=["Bố cục","Typography","Màu sắc","Hình ảnh","Khoảng trắng","Nhất quán"];
+document.getElementById("scores").innerHTML=cats.map((c,i)=>`<div class="score"><label>${c} <b id="sv${i}">5/10</b></label><input type="range" min="1" max="10" value="5" oninput="document.getElementById('sv${i}').textContent=this.value+'/10'"></div>`).join("");
+function saveReview(){let vals=[...document.querySelectorAll(".score input")].map(x=>+x.value),avg=(vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(1);localStorage.setItem("lastscore",avg);localStorage.setItem("reviewnote",document.getElementById("note").value);document.getElementById("reviewResult").innerHTML="<b>"+avg+"/10</b> — "+(avg>=8?"Rất tốt!":avg>=6?"Đã ổn, tiếp tục sửa điểm yếu.":"Đừng nản — chọn 1–2 tiêu chí thấp nhất để sửa trước.");stats();drawBadges()}
+function drawBadges(){let n=done.length;let bs=[["🌱","Khởi động","Hoàn thành ngày 1",n>=1],["🔥","7 ngày","Hoàn thành 7 ngày",n>=7],["💪","30 ngày","Hoàn thành 30 ngày",n>=30],["🎨","50 ngày","Hoàn thành 50 ngày",n>=50],["🏆","100 ngày","Hoàn thành toàn bộ",n>=100],["⭐","8 điểm","Có lần tự chấm ≥ 8",+(localStorage.getItem("lastscore")||0)>=8]];document.getElementById("badges").innerHTML=bs.map(b=>`<div class="badgecard ${b[3]?"":"lock"}"><div class="emoji">${b[0]}</div><b>${b[1]}</b><small>${b[2]}</small></div>`).join("")}
+window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e;document.getElementById("installBtn").style.display="inline-block";document.getElementById("installBtn").onclick=async()=>{deferred.prompt();deferred=null}});
+render();
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js");
+</script></body></html>

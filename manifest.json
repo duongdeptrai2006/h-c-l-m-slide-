@@ -1,0 +1,9 @@
+{
+  "name": "Slide 100 – Học thiết kế slide",
+  "short_name": "Slide 100",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#2563eb",
+  "lang": "vi"
+}
